@@ -17,30 +17,16 @@ namespace vk.core.Controllers
         //59.9397392 северной широты
         //30.3140793 восточной долготы
         //GET api/values
-       [HttpGet("{latitude}-{lontitude}")]
+        [HttpGet("{latitude}-{lontitude}")]
         public string GetATMLocationsInfo(double latitude, double lontitude)
         {
-            ATMLocations atmTest = MasterCard.Api.Locations.ATMLocationsTest.Get(latitude, lontitude);
+            var atmTest = new ATMLocations{};
+            try {
+                atmTest = MasterCard.Api.Locations.ATMLocationsTest.Get(latitude, lontitude);
+            } catch (Exception ex) {
+            }
             return JsonConvert.SerializeObject(atmTest); 
         }
 
-        
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
