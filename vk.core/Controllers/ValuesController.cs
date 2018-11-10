@@ -16,11 +16,11 @@ namespace vk.core.Controllers
         //Координаты:
         //59.9397392 северной широты
         //30.3140793 восточной долготы
-        // GET api/values
-        //[HttpGet("{latitude}-{lontitude}")]
-        public string/*IEnumerable<double>*/ GetATMLocationsInfo(/*double latitude, double lontitude*/)
+        //GET api/values
+       [HttpGet("{latitude}-{lontitude}")]
+        public string GetATMLocationsInfo(double latitude, double lontitude)
         {
-            ATMLocations atmTest = MasterCard.Api.Locations.ATMLocationsTest.Get(59.9397392, 30.3140793);
+            ATMLocations atmTest = MasterCard.Api.Locations.ATMLocationsTest.Get(latitude, lontitude);
             return JsonConvert.SerializeObject(atmTest); 
         }
 

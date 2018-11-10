@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using MasterCard.Core;
 using MasterCard.Core.Exceptions;
 using MasterCard.Core.Model;
@@ -14,9 +15,9 @@ namespace MasterCard.Api.Locations
         {
             string consumerKey = "shbGabkd9bXLE4jnpYlB5AHULo5lUq8PQSZzcSi5d1e6817b!285415dee84e4affb0fb85fee8e4164a0000000000000000";  
             string keyAlias = "keyalias";  
-            string keyPassword = "keystorepassword"; 
-            var path = MasterCard.Core.Util.GetCurrenyAssemblyPath(); // This returns the path to your assembly so it be used to locate your cert
-            string certPath = "/Users/sasha/source/repos/vk.core/vk.core/wwwroot/hackaton-vk-sandbox.p12"; // e.g. /Users/yourname/project/sandbox.p12 | C:\Users\yourname\project\sandbox.p12
+            string keyPassword = "keystorepassword";
+            var pathfile = Directory.GetCurrentDirectory();
+            string certPath = $"{pathfile}/wwwroot/hackaton-vk-sandbox.p12"; // e.g. /Users/yourname/project/sandbox.p12 | C:\Users\yourname\project\sandbox.p12
 
             ApiConfig.SetAuthentication(new OAuthAuthentication(consumerKey, certPath, keyAlias, keyPassword));   // You only need to set this once
             ApiConfig.SetSandbox(true); // For production: use ApiConfig.setSandbox(false)
