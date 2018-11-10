@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MasterCard.Api.Locations;
 using Microsoft.AspNetCore.Mvc;
 using TestMasterCard;
+using Newtonsoft.Json;
 
 namespace vk.core.Controllers
 {
@@ -17,10 +18,10 @@ namespace vk.core.Controllers
         //30.3140793 восточной долготы
         // GET api/values
         //[HttpGet("{latitude}-{lontitude}")]
-        public ATMLocations/*IEnumerable<double>*/ GetATMLocationsInfo(/*double latitude, double lontitude*/)
+        public string/*IEnumerable<double>*/ GetATMLocationsInfo(/*double latitude, double lontitude*/)
         {
-            ATMLocations atmTest = MasterCard.Api.Locations.ATMLocationsTest.Get(1, -20);
-            return atmTest/*$"latitude is {latitude} \n lontitude is {lontitude}"*/;
+            ATMLocations atmTest = MasterCard.Api.Locations.ATMLocationsTest.Get(59.9397392, 30.3140793);
+            return JsonConvert.SerializeObject(atmTest); 
         }
 
         

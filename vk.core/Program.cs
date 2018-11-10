@@ -18,8 +18,6 @@ namespace vk.core
             BuildWebHost(args).Run();
         }
 
-        ATMLocationsTest atmTest = new ATMLocationsTest();
-
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()

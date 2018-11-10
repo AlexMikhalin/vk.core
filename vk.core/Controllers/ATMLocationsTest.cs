@@ -25,7 +25,7 @@ namespace MasterCard.Api.Locations
 
             var stringLatitiude = latitude.ToString().Replace(",", ".");
             var stringLongitude = longitude.ToString().Replace(",", ".");
-            map.Set("PageLength", "100");
+            map.Set("PageLength", "11");
             map.Set("PostalCode", "191186");
             map.Set("PageOffset", "0");
             map.Set("Latitude", $"{stringLatitiude}");
